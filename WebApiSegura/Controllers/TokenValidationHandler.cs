@@ -43,20 +43,25 @@ namespace WebApiSegura.Controllers
 
             try
             {
-                var secret = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
-                var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secret));
+                var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
+                var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];
+                var issuerToken = ConfigurationManager.AppSettings["JWT_ISSUER_TOKEN"];
+                var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(secretKey));
+                // var securityKey = new SymmetricSecurityKey(Convert.FromBase64String(secretKey));
 
                 SecurityToken securityToken;
-                var tokenHandler =  new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler(); 
+                var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
                 TokenValidationParameters validationParameters = new TokenValidationParameters()
                 {
+                    ValidAudience = audienceToken,
+                    ValidIssuer = issuerToken,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     LifetimeValidator = this.LifetimeValidator,
                     IssuerSigningKey = securityKey
                 };
 
-                //extract and assign the user of the jwt
+                // Extract and assign Current Principal and user
                 Thread.CurrentPrincipal = tokenHandler.ValidateToken(token, validationParameters, out securityToken);
                 HttpContext.Current.User = tokenHandler.ValidateToken(token, validationParameters, out securityToken);
 
