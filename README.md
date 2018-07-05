@@ -7,6 +7,15 @@ Entrando en materia, partimos de la base que conocemos JTW y su ciclo de vida, s
 
 ![](https://cdn.auth0.com/content/jwt/jwt-diagram.png)
 
+
+## Articulos Tecnicos en blog atSistemas
+
+Para entender mejor este ejemplo, aqui dejo links a los articulos:
+
+http://enmilocalfunciona.io/construyendo-una-web-api-rest-segura-con-json-web-token-en-net-parte-i/
+http://enmilocalfunciona.io/construyendo-una-web-api-rest-segura-con-json-web-token-en-net-parte-ii/
+http://enmilocalfunciona.io/construyendo-una-web-api-rest-segura-con-json-web-token-en-net-parte-iii/
+
 ## Implementación de JWT
 
 Este ejemplo, sirve como plantilla de referencia para la implementacion de JWT en aplicaciones ASP.NET Web API
