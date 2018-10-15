@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 
-namespace WebApiSegura.Controllers
+namespace WebApiSegura.Security
 {
     /// <summary>
     /// JWT Token generator class using "secret-key"
@@ -13,7 +13,7 @@ namespace WebApiSegura.Controllers
     {
         public static string GenerateTokenJwt(string username)
         {
-            // appsetting for Token JWT
+            //TODO: appsetting for Demo JWT - protect correctly this settings
             var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
             var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];
             var issuerToken = ConfigurationManager.AppSettings["JWT_ISSUER_TOKEN"];

@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading;
 using System.Web.Http;
 using WebApiSegura.Models;
+using WebApiSegura.Security;
 
 namespace WebApiSegura.Controllers
 {
@@ -35,7 +36,7 @@ namespace WebApiSegura.Controllers
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            //TODO: Validate credentials Correctly, this code is only for demo !!
+            //TODO: This code is only for demo - Validate Correctly !!
             bool isCredentialValid = (login.Password == "123456"); 
             if (isCredentialValid)
             {

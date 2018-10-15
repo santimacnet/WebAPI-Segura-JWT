@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Http;
-using WebApiSegura.Controllers;
+using WebApiSegura.Security;
 
 namespace WebApiSegura
 {

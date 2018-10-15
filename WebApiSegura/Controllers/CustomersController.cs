@@ -12,7 +12,7 @@ namespace WebApiSegura.Controllers
         [HttpGet]
         public IHttpActionResult GetId(int id)
         {
-            var customerFake = "customer-fake";
+            var customerFake = "customer-fake: " + id;
             return Ok(customerFake);
         }
 
