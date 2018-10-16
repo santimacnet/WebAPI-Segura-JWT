@@ -10,7 +10,7 @@ namespace WebApiSegura.Controllers
     /// <summary>
     /// admin controller class for testing security token with role admin
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [RoutePrefix("api/admin")]
     public class AdminController : ApiController
     {
