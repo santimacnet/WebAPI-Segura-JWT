@@ -36,19 +36,35 @@ namespace WebApiSegura.Controllers
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            //TODO: This code is only for demo - extract method & validate correctly !!
-            bool isAdminValid = (login.Username == "admin" && login.Password == "123456");
-            bool isUserValid = (login.Username == "user" && login.Password == "123456");
-
-            if (isAdminValid || isUserValid)
+            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
+            var isUserValid = (login.Username == "user" && login.Password == "123456");
+            if (isUserValid)
             {
-                var token = TokenGenerator.GenerateTokenJwt(login.Username);
+                var rolename = "Developer";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
                 return Ok(token);
             }
-            else
+
+            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
+            var isTesterValid = (login.Username == "test" && login.Password == "123456");
+            if (isTesterValid)
             {
-                return Unauthorized();
+                var rolename = "Tester";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
+                return Ok(token);
             }
+
+            //TODO: This code is only for demo - extract method in new class & validate correctly in your application !!
+            var isAdminValid = (login.Username == "admin" && login.Password == "123456");
+            if (isAdminValid)
+            {
+                var rolename = "Administrator";
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, rolename);
+                return Ok(token);
+            }
+
+            // Unauthorized access 
+            return Unauthorized();
         }
     }
 }
