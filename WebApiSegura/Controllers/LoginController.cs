@@ -36,9 +36,11 @@ namespace WebApiSegura.Controllers
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            //TODO: This code is only for demo - Validate Correctly !!
-            bool isCredentialValid = (login.Password == "123456"); 
-            if (isCredentialValid)
+            //TODO: This code is only for demo - extract method & validate correctly !!
+            bool isAdminValid = (login.Username == "admin" && login.Password == "123456");
+            bool isUserValid = (login.Username == "user" && login.Password == "123456");
+
+            if (isAdminValid || isUserValid)
             {
                 var token = TokenGenerator.GenerateTokenJwt(login.Username);
                 return Ok(token);
