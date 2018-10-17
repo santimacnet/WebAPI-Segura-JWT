@@ -1,9 +1,12 @@
 # WebAPI-Segura-JWT
 Proyecto WebAPI para securitar API REST mediante JWT con Secret-Key y expiración.
 
-MEETUP-BCN: https://www.meetup.com/es-ES/En-Mi-Local-Funciona-Barcelona/events/254915418/
+![](https://github.com/santimacnet/WebAPI-Segura-JWT/blob/master/Meetup-Barcelona-Foto.jpg)
 
-Se adjuntan las diapositivas PPT del evento al proyecto en rama master junto con la demo
+
+Se adjuntan las diapositivas PPT del evento en el proyecto.
+
+MEETUP-BCN: https://www.meetup.com/es-ES/En-Mi-Local-Funciona-Barcelona/events/254915418/
 
 ## Fundamentos de JWT
 
